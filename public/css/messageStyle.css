@@ -1,0 +1,190 @@
+
+:root{
+    --main:#3933b7;
+    --secondry:#508dd3;
+    --gradient:linear-gradient(120deg, var(--main), var(--secondry));
+}
+
+*{
+    font-family: 'Poppins', sans-serif;
+    margin:0; padding:0;
+    box-sizing: border-box;
+    text-decoration: none;
+    outline: none; border:none;
+    text-transform: capitalize;
+}
+
+.Mycontainer {
+    width: 96%;
+    height: 550px;
+    box-shadow: 0 0.5rem 1rem rgb(0 0 0 / 10%);
+    border: 0rem solid rgba(0,0,0,.2);
+    border-radius: 0.5rem;
+    margin: auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    padding: 0px;
+}
+.containerHeader {
+    width: 100%;
+    height: 30px;
+    background: var(--secondry);
+}
+.messageHolder {
+    width: 50%;
+    height: 100%;
+    border-radius: 0.5rem;
+    overflow-y: scroll;
+}
+.cardwrapper {
+    width: 100%;
+    height: auto;
+}
+.messageDisplay {
+    width: 60%;
+    height: 100%;
+    padding: 20px;
+    overflow-y: scroll;
+}
+.buttons {
+    float: right;
+    font-size: 22px;
+    cursor: pointer;
+    color: inherit;
+    position: relative;
+    bottom: 15px;
+}
+.fa-times-circle {
+    color: red;
+
+}
+.fa-arrow-circle-right {
+    color: var(--main);
+}
+
+.wrapper {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.displayCreatedAt {
+    float: right;
+    margin-top: 20px;
+    color: var(--main);
+}
+
+.displaySubject {
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+.displayPhone {
+    float: right;
+    position: relative;
+    bottom: 24px;
+
+}
+
+fieldset {
+    border: 2px dashed var(--main);
+    border-radius: 10px;
+    margin: 15px;
+    padding: 10px;
+}
+fieldset legend{
+    text-align: center;
+    color: var(--main);
+}
+
+
+::-webkit-scrollbar {
+    width: 10px;
+  }
+  
+  ::-webkit-scrollbar-track {
+    background: #f1f1f1; 
+  }
+   
+  ::-webkit-scrollbar-thumb {
+    background: var(--main); 
+    border-radius: 5px;
+  }
+  
+  ::-webkit-scrollbar-thumb:hover {
+    background: var(--secondry); 
+  }
+
+  .replaySection {
+      margin-top: 50px;
+      width: 100%;
+  }
+
+  .btn{
+    display: inline-block;
+    padding:5px 10px;
+    margin: 0;
+    border-radius: 10px;
+    background-color: white;
+    font-size: 15px;
+    color:var(--main);
+    cursor: pointer;
+    box-shadow: 0 .5rem 1rem rgba(0,0,0,.1);
+    transition: all .3s linear;
+  }
+  
+  .btn:hover{
+    transform: scale(1.1);
+  }
+
+
+  
+form{
+  flex:1 1 40rem;
+
+}
+
+form .heading{
+  text-align: left;
+  padding:0;
+  padding-bottom: 2rem;
+}
+
+form .inputBox{
+  position: relative;
+}
+
+form .inputBox label{
+  position: relative;
+  top: 3px;
+}
+
+
+form .inputBox input ,select , textarea{
+  width:100%;
+  background:none;
+  color:#666;
+  font-size: 15px;
+  border-bottom: .1rem solid rgba(0,0,0,.1);
+  text-transform: none;
+}
+
+
+form .inputBox label{
+  font-size: 16px;
+  color:var(--main);
+  transition: .2s linear;
+}
+.message {
+    text-align: center;
+      width: 100%;
+      height: 50px;
+      background-color: rgb(37, 114, 37);
+      margin-top: 10px;
+      border-radius: 10px;
+      color: white;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+  }
