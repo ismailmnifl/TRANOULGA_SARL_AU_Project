@@ -120,6 +120,9 @@
   .side-navbar.active {
     left: 0;
   }
+  .baginationAndSearch input {
+    width: 40px;
+  }
 }
 
 /* table styles start */

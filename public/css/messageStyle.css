@@ -18,8 +18,8 @@
     width: 96%;
     height: 550px;
     box-shadow: 0 0.5rem 1rem rgb(0 0 0 / 10%);
-    border: 0rem solid rgba(0,0,0,.2);
-    border-radius: 0.5rem;
+    border: 1px dashed var(--main);
+    border-radius: 10px;
     margin: auto;
     display: flex;
     align-items: center;
@@ -187,4 +187,22 @@ form .inputBox label{
       display: flex;
       align-items: center;
       justify-content: center;
+  }
+
+  @media (max-width:768px){ 
+    .Mycontainer {
+      flex-direction: column;
+    }
+    .messageDisplay {
+      width: 100%;
+    }
+    .messageHolder {
+      width:100%;
+    }
+    .displayPhone {
+      float:none;
+      position: relative;
+      bottom: 0;
+  
+  }
   }

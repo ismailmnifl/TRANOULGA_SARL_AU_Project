@@ -10,7 +10,10 @@ use Illuminate\Support\Facades\DB;
 class pagesController extends Controller
 {
     public function index() {
-        return view('index');
+
+        $services = DB::table("servies")
+        ->get();
+        return view('index',compact('services'));
     }
     function login() {
         return view('auth.login');
@@ -78,7 +81,6 @@ class pagesController extends Controller
         return view('404');
     }
     function messagesPages() {
-        
         $messages = DB::table('messages')
         ->orderBy("messages.messages_id","desc")
         ->get();
@@ -86,5 +88,8 @@ class pagesController extends Controller
     }
     function contactView() {
         return view('contact');
+    }
+    function galleryPage() {
+        return view('gallery');
     }
 }

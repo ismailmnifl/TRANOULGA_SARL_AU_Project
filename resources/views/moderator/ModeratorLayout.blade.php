@@ -10,6 +10,8 @@
 
   <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" />
 
+  <link rel="shortcut icon" href="{{ url('images/TNLLOGO.png') }}">
+
 </head>
 <body>
     <div class="main">

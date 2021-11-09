@@ -138,8 +138,8 @@ h2 {
   background-color: red;
   color: white;
   position: relative;
-  left: 15px;
-  bottom: 15px;
+  left: 18px;
+  bottom: 17px;
   margin-left: 10px;
 }
 
@@ -153,7 +153,11 @@ h2 {
   margin-top: 10px;
 }
 
-
+.wrappr {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
 
 ::-webkit-scrollbar {
   width: 10px;

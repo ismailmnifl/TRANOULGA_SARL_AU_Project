@@ -112,44 +112,105 @@ class sitesController extends Controller
 
 
     function insertSectors(Request $request) {
+        
+       
 
-        $request->validate([
-            'azimuth1' => 'required|min:4',
-            'cell_identification1' => 'required|min:4',
-            'channel_number1' => 'required',
-            'frequence_G9001' => 'required|min:4',
-            'threeGcell_identification1' => 'required|min:4',
-            'primary_scrambling_code1' => 'required|min:4',
-            'frequence_U9001' => 'required|min:4',
-            'frequence_U21001' => 'required|min:4',
-            'physical_cell_identity1' => 'required|min:4',
-            'frequence_L8001' => 'required|min:4',
-            'requence_L18001' => 'required|min:4',
-            'azimuth2' => 'required|min:4',
-            'cell_identification2' => 'required|min:4',
-            'channel_number2' => 'required',
-            'frequence_G9002' => 'required|min:4',
-            'threeGcell_identification2' => 'required|min:4',
-            'primary_scrambling_code2' => 'required|min:4',
-            'frequence_U9002' => 'required|min:4',
-            'frequence_U21002' => 'required|min:4',
-            'physical_cell_identity2' => 'required|min:4',
-            'frequence_L8002' => 'required|min:4',
-            'requence_L18002' => 'required|min:4',
-            'azimuth3' => 'required|min:4',
-            'cell_identification3' => 'required|min:4',
-            'channel_number3' => 'required|',
-            'frequence_G9003' => 'required|min:4',
-            'threeGcell_identification3' => 'required|min:4',
-            'primary_scrambling_code3' => 'required|min:4',
-            'frequence_U9003' => 'required|min:4',
-            'frequence_U21003' => 'required|min:4',
-            'physical_cell_identity3' => 'required|min:4',
-            'frequence_L8003' => 'required|min:4',
-            'requence_L18003' => 'required|min:4',
-        ]);
+        if ($request->siteMode != "ConfigurationReduite") {
+            $request->validate([
 
 
+
+                'azimuth1'=> 'required',
+                'cell_identification1'=> 'required',
+                'channel_number1'=> 'required',
+                'frequence_G9001'=> 'required',
+    
+                'threeGcell_identification1'=> 'required',
+                'primary_scrambling_code1'=> 'required',
+                'frequence_U9001'=> 'required',
+    
+                'physical_cell_identity1'=> 'required',
+                'frequence_L8001'=> 'required',
+    
+    
+    
+                'azimuth2'=> 'required', 
+                'cell_identification2'=> 'required',
+                'channel_number2'=> 'required',
+                'frequence_G9002'=> 'required',
+    
+                'threeGcell_identification2'=> 'required',
+                'primary_scrambling_code2'=> 'required',
+                'frequence_U9002'=> 'required',
+    
+                'physical_cell_identity2'=> 'required',
+                'frequence_L8002'=> 'required',
+    
+    
+    
+                'azimuth3'=> 'required',
+                'cell_identification3'=> 'required', 
+                'channel_number3'=> 'required', 
+                'frequence_G9003'=> 'required',
+    
+                'threeGcell_identification3'=> 'required',
+                'primary_scrambling_code3'=> 'required',
+                'frequence_U9003'=> 'required', 
+    
+                'physical_cell_identity3'=> 'required', 
+                'frequence_L8003'=> 'required',
+
+                'frequence_U21001'=> 'required',
+                'requence_L18001'=> 'required',
+                'frequence_U21002'=> 'required',
+                'requence_L18002'=> 'required',
+                'frequence_U21003'=> 'required', 
+                'requence_L18003'=> 'required',
+            ]);
+        }else{
+            $request->validate([
+                'azimuth1'=> 'required',
+                'cell_identification1'=> 'required',
+                'channel_number1'=> 'required',
+                'frequence_G9001'=> 'required',
+    
+                'threeGcell_identification1'=> 'required',
+                'primary_scrambling_code1'=> 'required',
+                'frequence_U9001'=> 'required',
+    
+                'physical_cell_identity1'=> 'required',
+                'frequence_L8001'=> 'required',
+    
+    
+    
+                'azimuth2'=> 'required', 
+                'cell_identification2'=> 'required',
+                'channel_number2'=> 'required',
+                'frequence_G9002'=> 'required',
+    
+                'threeGcell_identification2'=> 'required',
+                'primary_scrambling_code2'=> 'required',
+                'frequence_U9002'=> 'required',
+    
+                'physical_cell_identity2'=> 'required',
+                'frequence_L8002'=> 'required',
+    
+    
+    
+                'azimuth3'=> 'required',
+                'cell_identification3'=> 'required', 
+                'channel_number3'=> 'required', 
+                'frequence_G9003'=> 'required',
+    
+                'threeGcell_identification3'=> 'required',
+                'primary_scrambling_code3'=> 'required',
+                'frequence_U9003'=> 'required', 
+    
+                'physical_cell_identity3'=> 'required', 
+                'frequence_L8003'=> 'required',
+                
+            ]);
+        }
 /* ***********************************first sector********************************** */
         
         $lastSiteInserted =
@@ -266,7 +327,10 @@ class sitesController extends Controller
             'frequence_L800' => $request->frequence_L8003,
             'frequence_L1800' => $request->requence_L18003,            
         ]);
-        return view('admin.sites')->with('message', 'le site a été ajouter avec succée');
+        $sites = DB::table('sites')
+            ->get();
+            $request->session()->forget('siteName');
+        return view('admin.sites',compact('sites'))->with('message', 'le site a été ajouter avec succée');
 
     }
 
@@ -280,39 +344,41 @@ class sitesController extends Controller
 /* 
 
         $request->validate([
-            'azimuth1' => 'required|min:4',
-            'cell_identification1' => 'required|min:4',
+            'azimuth1' => 'required',
+            'cell_identification1' => 'required',
             'channel_number1' => 'required',
-            'frequence_G9001' => 'required|min:4',
-            'threeGcell_identification1' => 'required|min:4',
-            'primary_scrambling_code1' => 'required|min:4',
-            'frequence_U9001' => 'required|min:4',
-            'frequence_U21001' => 'required|min:4',
-            'physical_cell_identity1' => 'required|min:4',
-            'frequence_L8001' => 'required|min:4',
-            'requence_L18001' => 'required|min:4',
-            'azimuth2' => 'required|min:4',
-            'cell_identification2' => 'required|min:4',
+            'frequence_G9001' => 'required',
+            'threeGcell_identification1' => 'required',
+            'primary_scrambling_code1' => 'required',
+            'frequence_U9001' => 'required',
+            'frequence_U21001' => 'required',
+            'physical_cell_identity1' => 'required',
+            'frequence_L8001' => 'required',
+            'requence_L18001' => 'required',
+
+            'azimuth2' => 'required',
+            'cell_identification2' => 'required',
             'channel_number2' => 'required',
-            'frequence_G9002' => 'required|min:4',
-            'threeGcell_identification2' => 'required|min:4',
-            'primary_scrambling_code2' => 'required|min:4',
-            'frequence_U9002' => 'required|min:4',
-            'frequence_U21002' => 'required|min:4',
-            'physical_cell_identity2' => 'required|min:4',
-            'frequence_L8002' => 'required|min:4',
-            'requence_L18002' => 'required|min:4',
-            'azimuth3' => 'required|min:4',
-            'cell_identification3' => 'required|min:4',
+            'frequence_G9002' => 'required',
+            'threeGcell_identification2' => 'required',
+            'primary_scrambling_code2' => 'required',
+            'frequence_U9002' => 'required',
+            'frequence_U21002' => 'required',
+            'physical_cell_identity2' => 'required',
+            'frequence_L8002' => 'required',
+            'requence_L18002' => 'required',
+
+            'azimuth3' => 'required',
+            'cell_identification3' => 'required',
             'channel_number3' => 'required|',
-            'frequence_G9003' => 'required|min:4',
-            'threeGcell_identification3' => 'required|min:4',
-            'primary_scrambling_code3' => 'required|min:4',
-            'frequence_U9003' => 'required|min:4',
-            'frequence_U21003' => 'required|min:4',
-            'physical_cell_identity3' => 'required|min:4',
-            'frequence_L8003' => 'required|min:4',
-            'requence_L18003' => 'required|min:4',
+            'frequence_G9003' => 'required',
+            'threeGcell_identification3' => 'required',
+            'primary_scrambling_code3' => 'required',
+            'frequence_U9003' => 'required',
+            'frequence_U21003' => 'required',
+            'physical_cell_identity3' => 'required',
+            'frequence_L8003' => 'required',
+            'requence_L18003' => 'required',
         ]);
 
 */

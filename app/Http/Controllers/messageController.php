@@ -42,7 +42,7 @@ class messageController extends Controller
     }
     function deleteMessage($id) {
         DB::table('messages')->where('messages_id',$id)->delete();
-        return back()->with('message','Le message a été suprimmé avec succès');
+        return back()->with('deleteMessage','Le message a été suprimmé avec succès');
     }
  /* ************************************************************************************************* */   
  function replay(Request $request) {
@@ -63,7 +63,11 @@ class messageController extends Controller
         return back()->with('message','Votre message a été envoyer avec succès');
     }
  /* ************************************************************************************************* */   
-    function getSingleMessage($id) {
+    function getSingleMessage(Request $request,$id) {
+
+        DB::table('messages')->where('messages_id',$id)->update([
+            'readStatus'=> 1,
+        ]);
 
         $RaplyMessage = DB::table("messages")
         ->where("messages.messages_id", "=", $id)
@@ -71,6 +75,20 @@ class messageController extends Controller
         $messages = DB::table('messages')
         ->orderBy("messages.messages_id","desc")
         ->get();
+
+        
+        $this->messageNotifications($request);
         return view('admin.message',compact('RaplyMessage','messages'));
     }
+
+
+    function messageNotifications(Request $request) {
+        $unreadMessagesCount = DB::table("messages")
+        ->where("messages.readstatus", "=", 0)
+        ->select(DB::raw('COUNT(messages_id) AS unread'))
+        ->get()
+        ->first();
+        $request->session()->put('unReadMessage',$unreadMessagesCount->unread);
+    
+       }
 }

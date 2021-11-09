@@ -21,6 +21,9 @@
         <div class="cardwrapper">
           
             <div class="buttons">
+                @if ($message->readStatus == 0)
+                <i class="fas fa-eye-slash"></i>
+                @endif
                <a onclick="DeleteAlert({{ $message->messages_id }})"><i class="fas fa-times-circle"></i></a> 
                <a href="/admin/messages/get/{{ $message->messages_id }}"><i class="fas fa-arrow-circle-right"></i></a> 
             </div>

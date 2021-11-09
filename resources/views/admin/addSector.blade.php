@@ -35,6 +35,7 @@
                 @endif
 <form id="myform" action="{{ route('sector.add') }}" method="POST">
     @csrf
+    <input type="hidden" name="siteMode" value="{{ $siteIbfos->mode }}">
         <div class="container">
             <div class="wrapper">
                     

@@ -41,6 +41,7 @@ Route::get('/contact/page/us',[pagesController::class , 'contactView']);
 
 Route::post('/admin/messages/add',[messageController::class, 'submitMessage'])->name('admin.add.message');
 Route::get('/admin/messages/get/{id}',[messageController::class, 'getSingleMessage']);
+Route::get('/gallery',[pagesController::class, 'galleryPage']);
 
 
 //middle groupe for admin pages

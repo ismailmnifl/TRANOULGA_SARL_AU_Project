@@ -12,6 +12,7 @@
     <link rel="stylesheet" href="{{ url('css/indexStyles.css') }}">
 
 
+    <link rel="shortcut icon" href="{{ url('images/TNLLOGO.png') }}">
 
     <style>
     .mapouter
@@ -38,17 +39,15 @@
 
 <header>
 
-    <a href="#" class="logo"><span style="font-weight: bold;">TNL</span> Solutions</a>
+    <a href="{{ url('/') }}" class="logo"><span style="font-weight: bold;">TRANOULGA</span> Solutions</a>
 
     <input type="checkbox" id="menu-bar">
     <label for="menu-bar" class="fas fa-bars"></label>
 
     <nav class="navbar">
         <a href="{{ url('/') }}">home</a>
-        <a href="#features">servies</a>
-        <a href="#about">about</a>
-        <a href="#review">team</a>
-        <a href="#contact">contact</a>
+        <a href="{{ url('/contact/page/us') }}">contact</a>
+        <a href="{{ url('/gallery') }}">Gallery</a>
 
         @if (session()->has('LoggedUser'))
         @if (session('isAdmin') == 1)
@@ -180,17 +179,14 @@
 
         <div class="box">
             <h3>about us</h3>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Amet pariatur rerum consectetur architecto ad tempora blanditiis quo aliquid inventore a.</p>
+            <p>TRANOULGA SARL AU Et Une Société Spécialisée En Systèmes Et Réseaux Informatiques Et Télécommunication.</p>
         </div>
 
         <div class="box">
             <h3>quick links</h3>
-            <a href="#">home</a>
-            <a href="#">features</a>
-            <a href="#">about</a>
-            <a href="#">review</a>
-            <a href="#">pricing</a>
-            <a href="#">contact</a>
+            <a href="{{ url('/') }}">home</a>
+            <a href="{{ url('/contact/page/us') }}">contact</a>
+            <a href="{{ url('/gallery') }}">Gallery</a>
         </div>
 
         <div class="box">
@@ -205,11 +201,11 @@
             <h3>contact info</h3>
             <div class="info">
                 <i class="fas fa-phone"></i>
-                <p> +212 37 27 36 55  <br> +212 61 70 58 75 </p>
+                <p>+212 61 70 58 75 </p>
             </div>
             <div class="info">
                 <i class="fas fa-envelope"></i>
-                <p> tranaulgasarkau@gmail.com <br> ismailmnifilprogmail.com </p>
+                <p>Tranaulgasarlau@Gmail.Com</p>
             </div>
             <div class="info">
                 <i class="fas fa-map-marker-alt"></i>

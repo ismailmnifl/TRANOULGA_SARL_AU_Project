@@ -223,6 +223,10 @@ h2 small {
     flex-basis: 50%;
     text-align: right;
  }
+
+ .baginationAndSearch {
+  width:50%;
+ }
 }
 
 /* table styles end */

@@ -6,7 +6,7 @@
     --secondry:#508dd3;
     --gradient:linear-gradient(120deg, var(--main), var(--secondry));
 }
-
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400&display=swap');
 *{
     font-family: 'Poppins', sans-serif;
 }
@@ -45,11 +45,12 @@ html{
         top: 5px;
         text-align: center;
     }
-    header .wrapper .titleHolder h3{
+    header .wrapper .titleHolder h2{
         margin-bottom: -10px;
+        
     }
     header .wrapper .titleHolder p{
-        color: black;
+        color: white;
     }
     .wrapper {
         width: 100%;
@@ -126,12 +127,10 @@ table {
 #customers {
   border-collapse: collapse;
   width: 100%;
-  margin-bottom : 20px; 
 }
 
 #customers td, #customers th {
-  border: 1px solid #ddd;
-  padding: 3px;
+  border: 1px solid grey;
 }
 
 #customers tr:nth-child(even){background-color: #f2f2f2;}
@@ -139,11 +138,10 @@ table {
 #customers tr:hover {background-color: #ddd;}
 
 #customers th {
-  padding-top: 12px;
-  padding-bottom: 12px;
+  padding: 3px;
   text-align: left;
-  background-color: #3933b7;
-  color: white;
+  background-color: white;
+  color: black;
 }
 .secteursContainer {
     width: 100%;
@@ -160,7 +158,7 @@ table {
 }
 .spacer {
     width: 100%;
-    height: 40px;
+    height: 20px;
 }
 #rowTech {
     max-width: 100px;
@@ -168,7 +166,11 @@ table {
 .sectorTitle {
     color: #3933b7;
     margin-bottom: 5px;
-    text-decoration: underline;
+    font-size: 20px;
+    text-align: center;
+}
+.firstFieldset {
+  height: 157px;
 }
   </style>
 </head>
@@ -179,11 +181,11 @@ table {
             <img src="{{ public_path('images/logoTNL.jpg') }}" alt="">
           </div>
           <div class="titleHolder">
-              <h3>TNL Solutions</h3>
+              <h2>TNL Solutions</h3>
             <p>Keeping you connected</p>
           </div>
       </div>
-      
+
   </header>
   <footer>
     <div class="pagenum-container">Page <span class="pagenum"></span></div>
@@ -194,7 +196,7 @@ table {
 <div class="mainwrapper">
     <div class="topSction">
         <div class="siteInfos">
-            <fieldset>
+            <fieldset class="firstFieldset">
                     <legend>
                         les informations du site 
                     </legend>
@@ -206,8 +208,6 @@ table {
                     <div class="title">Height : <span class="info">{{ $sites->height }}</span></div>
                     <div class="title">Client : <span class="info">{{ $sites->client }}</span></div>
                     <div class="title">Date Created : <span class="info">{{ $sites->dateCreated }}</span></div>
-                    
-                    
                     
             </fieldset>
         </div>
@@ -225,10 +225,7 @@ table {
                     <div class="title">Représentant du document : <span class="info"></span></div>
                     <div class="title">Nom :  <span class="info"></span></div>
                     <div class="title">Signature :  <span class="info"></span></div>
-                    
-                    
-                    
-                    
+
             </fieldset>
         </div>
         
@@ -239,7 +236,7 @@ table {
                     <legend>
                         les informations des secteurs
                     </legend>
-                        <div class="sectorTitle">Secteur 1 : </div>
+                        <div class="sectorTitle">Premier Secteur</div>
                         
                     <table id="customers">
                         <tr>
@@ -302,12 +299,13 @@ table {
                     
             </fieldset>
         </div>
+        <div class="spacer"></div>
         <div class="secteursContainer">
             <fieldset>
                     <legend>
                         les informations des secteurs
                     </legend>
-                        <div class="sectorTitle">Secteur 2 : </div>
+                        <div class="sectorTitle">Deuxième Secteur</div>
                         
                     <table id="customers">
                         <tr>
@@ -376,7 +374,7 @@ table {
                     <legend>
                         les informations des secteurs
                     </legend>
-                        <div class="sectorTitle">Secteur 3 : </div>
+                        <div class="sectorTitle">Troisième Secteur</div>
                         
                     <table id="customers">
                         <tr>

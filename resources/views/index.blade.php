@@ -11,6 +11,8 @@
     <!-- custom css file link  -->
     <link rel="stylesheet" href="{{ url('css/indexStyles.css') }}">
 
+    <link rel="shortcut icon" href="{{ url('images/TNLLOGO.png') }}">
+
 </head>
 <body>
     
@@ -18,7 +20,7 @@
 
 <header>
 
-    <a href="#" class="logo"><span style="font-weight: bold;">TNL</span> Solutions</a>
+    <a href="#" class="logo"><span style="font-weight: bold;">TRANOULGA</span> Solutions</a>
 
     <input type="checkbox" id="menu-bar">
     <label for="menu-bar" class="fas fa-bars"></label>
@@ -29,6 +31,8 @@
         <a href="#about">about</a>
         <a href="#review">team</a>
         <a href="{{ url('/contact/page/us') }}">contact</a>
+        <a href="{{ url('/gallery') }}">Gallery</a>
+        
 
         @if (session()->has('LoggedUser'))
         @if (session('isAdmin') == 1)
@@ -63,9 +67,11 @@
 <section class="home" id="home">
 
     <div class="content">
-        <h3>best network sevice <span>and maintenance</span></h3>
-        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatibus suscipit porro nam libero natus error consequatur sed repudiandae eos quo?</p>
-        <a href="#" class="btn">Read more</a>
+        <h3>Société spécialisée en Systèmes 
+            <span>et réseaux
+                Informatiques et télécommunication</span></h3>
+        <p>Nous travaillons à faire de notre passion pour les Systèmes et réseaux Informatiques et télécommunications une réalité. Nous espérons que vous apprécierez nos services autant que nous aimons vous les offrir.</p>
+        <a href="#about" class="btn">Read more</a>
     </div>
 
     <div class="image">
@@ -80,89 +86,26 @@
 
 <section class="features" id="features">
 
-    <h1 class="heading"> Our servies </h1>
+    <h1 class="heading"> Nos Services </h1>
 
     <div class="box-container phoneSlade">
+
+        @foreach ($services as $service)
         <div class="mySlides slid">
             <div class="bWrapper">
             <div class="box">
                 <div class="imageHolder">
 
-                <img src="{{ url('images/driveTest.svg') }}" alt="">
+                <img src="{{ url('uploads/images/'.$service->image) }}" alt="">
                 </div>
-                <h3>Network drive test</h3>
-                <p>npfal ipsum dolor sit amet consectetur, adipisicing elit. Ullam minus recusandae autem, repellendus fugit quaerat provident voluptatum non officiis ratione.</p>
+                <h3>{{ $service->title }}</h3>
+                <p>{{ $service->description }}</p>
                 <a href="#" class="btn">read more</a>
             </div>
             </div>
         </div>
-        <div class="mySlides slid">
-            <div class="bWrapper">
-                <div class="box">
-                    <div class="imageHolder">
-
-                    <img src=" {{ url('images/repaire.svg') }}" alt="">
-                    </div>
-                    <h3>Repair and upkeep network</h3>
-                    <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ullam minus recusandae autem, repellendus fugit quaerat provident voluptatum non officiis ratione.</p>
-                    <a href="#" class="btn">read more</a>
-                </div>
-            </div>
-        </div>
-        <div class="mySlides slid">
-            <div class="bWraper">
-                <div class="box">
-                    <div class="imageHolder">
-
-                    <img src=" {{ url('images/goodWork.svg') }}" alt="">
-                    </div>
-                    <h3>Reliable And serious Work Ethics</h3>
-                    <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ullam minus recusandae autem, repellendus fugit quaerat provident voluptatum non officiis ratione.</p>
-                    <a href="#" class="btn">read more</a>
-                </div>
-            </div>
-        </div>
-        <div class="mySlides slid">
-            <div class="bWrapper">
-                <div class="box">
-                    <div class="imageHolder">
-
-                    <img src="{{ url('images/security.svg') }}" alt="">
-                    </div>
-                    <h3>Network drive test</h3>
-                    <p>npfal ipsum dolor sit amet consectetur, adipisicing elit. Ullam minus recusandae autem, repellendus fugit quaerat provident voluptatum non officiis ratione.</p>
-                    <a href="#" class="btn">read more</a>
-                </div>
-            </div>
-        </div>
-        <div class="mySlides slid">
-                <div class="bWrapper">
-                    <div class="box">
-                        <div class="imageHolder">
-
-                        <img src=" {{ url('images/equipment.svg') }}" alt="">
-                        </div>
-                        <h3>Repair and upkeep network</h3>
-                        <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ullam minus recusandae autem, repellendus fugit quaerat provident voluptatum non officiis ratione.</p>
-                        <a href="#" class="btn">read more</a>
-                    </div>
-                </div>
-        </div>
-        <div class="mySlides slid">
-                <div class="bWraper">
-                    <div class="box">
-                        <div class="imageHolder">
-                        <img src=" {{ url('images/course.svg') }}" alt="">
-                    </div>
-                        <h3>Reliable And serious Work Ethics</h3>
-                        <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ullam minus recusandae autem, repellendus fugit quaerat provident voluptatum non officiis ratione.</p>
-                        <a href="#" class="btn">read more</a>
-                    </div>
-                </div>
-        </div>
+        @endforeach      
         
-        
-
         <div class="naviGroup">
             <button class="display-left navi" onclick="plusDivs(-1)">&#10094;</button>
             <button class="display-right navi" onclick="plusDivs(1)">&#10095;</button>    
@@ -219,7 +162,7 @@
 
 <section class="about" id="about">
 
-    <h1 class="heading"> About US </h1>
+    <h1 class="heading"> À PROPOS DE NOUS </h1>
 
     <div class="column">
 
@@ -228,9 +171,25 @@
         </div>
 
         <div class="content">
-            <h3>Increase competitive advantages over companies in the same market</h3>
-            <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Nulla placeat deserunt saepe repudiandae veniam soluta minima dolor hic aperiam iure.</p>
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Laudantium, quaerat. Dolorem ratione saepe magni quo inventore porro ab voluptates eos, nam eius provident accusantium, quia similique est, repellendus et reiciendis.</p>
+            <h3>Augmenter les avantages concurrentiels par rapport aux entreprises du même marché</h3>
+            <p>
+                Bienvenue chez TRANOUGA SARL AU, votre source numéro un pour tout ce qui concerne l'installation
+                et la maintenance des systèmes et réseaux Informatiques et télécommunications. Nous nous engageons
+                à vous fournir le meilleur de notre industrie, en mettant l'accent sur une qualité supérieure
+                et une bonne éthique de travail.
+
+                Fondée en 2019 par Nawfal LOUGDALI, TRANOUGA SARL AU a parcouru un long chemin depuis ses débuts à safi.
+                Lorsque Nawfal a commencé, sa passion pour la qualité premium et l'éthique de travail supérieure les
+                ont poussés à créer leur propre entreprise.
+
+                Nous espérons que vous apprécierez nos services autant que nous aimons vous les offrir.
+                Si vous avez des questions ou des commentaires, n'hésitez pas à nous contacter.
+
+                
+            </p>
+            <p>Sincèrement,</p>
+<p>Nawfal LOUGDALI</p>
+           
             <div class="buttons">
                 <a href="#" class="btn"> <i class="fas fa-sign-in-alt"></i></i> Join us </a>
                 <a href="#" class="btn"> <i class="fas fa-rss-square"></i></i> Follow us </a>
@@ -247,8 +206,8 @@
 
 <div class="newsletter">
 
-    <h3>Subscribe For New and updates</h3>
-    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Natus sed aliquam quibusdam neque magni magnam est laborum doloribus, facere dolores.</p>
+    <h3>ABONNEZ-VOUS POUR LES NOUVEAUX ET MISES À JOUR</h3>
+    <p>nous considérons que votre e-mail est considéré comme une information sensible et ne sera partagé avec aucune autre source</p>
     <form action="">
         <input type="email" placeholder="enter your email">
         <input type="submit" value="Subscribe">
@@ -285,8 +244,8 @@
         <div class="box">
             <i class="fas fa-quote-right"></i>
             <div class="user">
-                <img src=" {{ url('images/avatar.png') }}" alt="">
-                <h3>Badr Elachay</h3>
+                <img src=" {{ url('images/bdr.jpg') }}" alt="">
+                <h3>Badr Elachaq</h3>
                 <div class="stars">
                     <i class="fas fa-star"></i>
                     <i class="fas fa-star"></i>
@@ -303,8 +262,8 @@
         <div class="box">
             <i class="fas fa-quote-right"></i>
             <div class="user">
-                <img src=" {{ url('images/avatar.png') }}" alt="">
-                <h3>john deo</h3>
+                <img src=" {{ url('images/linkedinBIG.png') }}" alt="">
+                <h3>Ismail Mnifil</h3>
                 <div class="stars">
                     <i class="fas fa-star"></i>
                     <i class="fas fa-star"></i>
@@ -332,24 +291,25 @@
 
         <div class="box">
             <h3>about us</h3>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Amet pariatur rerum consectetur architecto ad tempora blanditiis quo aliquid inventore a.</p>
+            <p> TRANOULGA SARL AU et une
+                Société spécialisée en Systèmes et réseaux
+                Informatiques et télécommunication.</p>
         </div>
 
         <div class="box">
             <h3>quick links</h3>
-            <a href="#">home</a>
-            <a href="#">features</a>
-            <a href="#">about</a>
-            <a href="#">review</a>
-            <a href="#">pricing</a>
-            <a href="#">contact</a>
+            <a href="#home">home</a>
+            <a href="#features">servies</a>
+            <a href="#about">about</a>
+            <a href="#review">team</a>
+            <a href="{{ url('/contact/page/us') }}">contact</a>
         </div>
 
         <div class="box">
             <h3>follow us</h3>
-            <a href="#">facebook</a>
+            <a href="https://www.facebook.com/Tranoulga-SARL-AU-100755799097056">facebook</a>
             <a href="#">instagram</a>
-            <a href="#">pinterest</a>
+            <a href="https://www.linkedin.com/company/tranoulga-sarl-au/">Linkedin</a>
             <a href="#">twitter</a>
         </div>
 
@@ -357,11 +317,11 @@
             <h3>contact info</h3>
             <div class="info">
                 <i class="fas fa-phone"></i>
-                <p> +212 37 27 36 55  <br> +212 61 70 58 75 </p>
+                <p>+212 61 70 58 75 </p>
             </div>
             <div class="info">
                 <i class="fas fa-envelope"></i>
-                <p> tranaulgasarkau@gmail.com <br> ismailmnifilprogmail.com </p>
+                <p> tranaulgasarlau@gmail.com </p>
             </div>
             <div class="info">
                 <i class="fas fa-map-marker-alt"></i>
@@ -371,7 +331,7 @@
 
     </div>
 
-    <h1 class="credit"> &copy; copyright @ 2021 by TNL Solutions sarlau </h1>
+    <h1 class="credit"> &copy; copyright @ 2021 by TRANOULGA SARL AU </h1>
 
 </div>
 

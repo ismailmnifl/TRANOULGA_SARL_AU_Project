@@ -10,6 +10,9 @@
 
   <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" />
 
+  <link rel="shortcut icon" href="{{ url('images/TNLLOGO.png') }}">
+
+
 </head>
 <body>
     <div class="main">
@@ -67,16 +70,16 @@
                 @if(Session::has('notify'))
                 <div class="wrappr">
                 <div class="notyContainer">
-                    <a href="{{ url('/admin/mission/ownMission') }}">My missions
+                    <a href="{{ url('/admin/mission/ownMission') }}">missions
                         <p>{{ nl2br(Session::get('notify')) }}</p>
 
                         <div id="noty" class="fas fa-bell" id="menu-icon"></div>
                     </a>
                     
                 </div>
-                <div class="notyContainer">
-                    <a href="{{ url('/admin/mission/ownMission') }}">Messages
-                        <p>{{ nl2br(Session::get('notify')) }}</p>
+                <div style="margin-left: 5px;" class="notyContainer">
+                    <a href="{{ url('/admin/messages') }}">Messages
+                        <p>{{ nl2br(Session::get('unReadMessage')) }}</p>
 
                         <div id="noty" class="fas fa-sms" id="menu-icon"></div>
                     </a>

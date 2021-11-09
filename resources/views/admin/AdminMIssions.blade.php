@@ -17,7 +17,7 @@
                 <div class="baginationAndSearch">
                   <div class="inputBox">
                     <label>Search : </label>
-                    <input type="text" placeholder="Recherche par Status" class="search"/>
+                    <input type="text" class="searchInput" placeholder="Recherche par Status" class="search"/>
                 </div>
                 <ul class="pagination paginate"></ul>
                 </div>
